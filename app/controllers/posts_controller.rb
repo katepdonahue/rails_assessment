@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.create(params[:post])
   end
 
   def edit
@@ -21,6 +21,8 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    @post.update(params[:post])
   end
 
   def destroy
