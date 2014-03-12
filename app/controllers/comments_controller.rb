@@ -13,7 +13,11 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @post = Post.find(params[:post_id])
     @comment = Comment.create(params[:comment])
+    @post.comments << @comment
+    @post.save
+    redirect_to @post
   end
 
   def edit
@@ -29,5 +33,14 @@ class CommentsController < ApplicationController
 
   def destroy
   end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:post_id, :body)
+  end
+
 
 end
