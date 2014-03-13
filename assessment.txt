@@ -12,19 +12,35 @@ From any post I should be able to both see all the comments and add a comment my
 Questions to be answered in the assesment.txt file.
 
 How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+Active Record is an Object Relational Mapping (ORM). It maps rows in the database with ruby objects.
 
 What is a resource?
+If you use resource in your routes it sets up all the RESTful routes for you.
 
 What are the standard RESTful routes for a resource?
+GET    /posts
+POST   /posts
+GET    /posts/new
+GET    /posts/:id/edit
+GET    /posts/:id
+PATCH  /posts/:id
+PUT    /posts/:id
+DELETE /posts/:id
 
 What is CRUD?
+create, read, update, destroy
 
 What is REST?
+Representational State Transfer
 
 What is the difference between CRUD and REST?
+CRUD are the actions executed in a RESTful way
 
 Describe the flow of a request from a users browser through the rails stack and back.
+url hits the route which sends the request to a particular action in a specific controller. The specified action grabs the objects the view will need and serves up the view in the layout. The whole page is then rendered in the browser.
 
 What are HTTP verbs?
+get, post, put, destroy
 
 Why do we use migrations.
+So the database schema is able to be updated at any time and can be rolled back.
